@@ -2,9 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="css4css.css">
+    <title>Demonstration der CSS-Box</title>
 </head>
 <body>
-
+<div id="centerContainer">
+    <h1 id="h1Center">Demonstration der CSS-Box</h1>
+    <p> Auf dieser Homepage wird die Zusammensetzung der CSS-Box in einem Step-by-Step-Verfahren ausführlich
+        visualisiert.</p>
+    <aside></aside>
+    <section id="contentSection">
+        <article><h2>Das Fundament</h2>
+            <p>Als Basis haben wir eine einfache Box. Diese Box kann verschiedene Eigenschaften haben. Mindestens
+                aber besitzt Sie die Eigenschaften <i>"height"</i> (Höhe) und <i>"width"</i> (Weite). Unter Umständen,
+                wenn diese
+                Eigenschaften nicht explizit definiert werden, so existieren sie doch implizit durch den Kontext der
+                umliegenden/Elternelementen
+                und den Inhalt der Box selbst. In userem Fall ist der Inhalt ein kurzer Text ("Lorem ipsum").</p>
+            <p>Zunächst muss die Box über CSS angesprochen werden können. Wir vergeben ihr eine <i>ID</i>.</p>
+            <div class="htmlCode">&lt;div id="box"&gt;Lorem ipsum&lt/div&gt;</div>
+            <p>Nun kann die Box im CSS Dokument über die ID "box" angesprochen werden. Das Symbol <i>#</i> (Raute)
+                adressiert eine ID.</p>
+            <div class="htmlCode">div#box {
+                <br/>}
+            </div>
+            <p>Jetzt wollen wir unserer Box eine explizite Größe definieren. Dazu vergeben wir die Attribute
+                <i>"height"</i> und <i>"width"</i> im CSS Block der Box. Diese haben die folgenden Form:
+                <br>[Attribute]:[Wert]</p>
+            <div class="htmlCode">div#box {
+                <br>width: 200px;
+                <br>heigth: 100px;
+                <br/>}
+            </div>
+            <p>Das Ergebnis: <br>Unsere Box ist blau eingefärbt, damit wir sie besser erkennen können.</p>
+            <div class="boxBase">
+                <div class="innerBox step1">Lorem ipsum</div>
+            </div>
+        </article>
+        <article>
+            <h2>Der Innenabstand</h2>
+            <p>Nachdem wir eine Box mit genauen Maßen erzeugt haben, arbeiten wir uns nun durch das CSS-Box-Model von
+                Innen nach Außen.
+                <br>Betrachten wir nun den inneren Abstand. Bei der Erstellung der Box fällt auf, dass der Inhalt der
+                Box ("Lorem ipsum") direkt am linken Rand der Box beginnt. Das kann unter Umständen nicht sehr schön
+                aussehen. Um den Abstand vom Rand der Box nach Innen zu definieren wird das Attribut <i>padding</i>("Polster")
+                verwendet.
+                <br>Fügen wir unserer Box nun ein Padding Attribut hinzu. <i>padding</i> definiert den Abstand von allen
+                Seitenrändern. Soll allerdings nur der Abstand vom oberen Boxrand definiert werden, so kann das Attribut
+                <i>padding-top</i> verwendet werden.</p>
+            <div class="htmlCode">div#box {
+                <br>width: 200px;
+                <br>heigth: 100px;
+                <br>padding: 20px;
+                <br/>}
+            </div>
+            <p>Das Ergebnis:
+                <br>Die Schrift in der Box beginnt nun um 20 Pixel nach recht und unten verschoben. Der Padding-Bereich ist in violett markiert.</p>
+            <div class="boxBase">
+                <div class="innerBox step2"><div id="paddingBox">Lorem ipsum</div></div>
+            </div>
+        </article>
+    </section>
+</div>
 </body>
 </html>

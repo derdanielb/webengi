@@ -1,0 +1,73 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    text-align: center;
+
+}
+
+#centerContainer {
+    padding: 20px;
+    width: 800px;
+    display: block;
+    margin: 0px auto;
+    text-align: left;
+    border: 1px solid darkred;
+    background-color: InfoBackground;
+}
+
+#h1Center {
+    text-align: center;
+}
+
+#contentSection {
+    display: inline-block;
+}
+
+aside {
+    display: inline-block;
+}
+
+.htmlCode {
+    background-color: antiquewhite;
+    font-family: Consolas;
+    border: solid 1px burlywood;
+    display: inline-block;
+    margin-left: 50px;
+    padding: 20px;
+    width: 400px;
+}
+
+div.boxBase {
+    margin-left: 50px;
+    width: 300px;
+    height: 200px;
+    /*text-align: center;*/
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    background-color: white;
+
+}
+
+div.innerBox {
+
+    position: relative;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    vertical-align: middle;
+}
+div.step2{
+    padding: 20px;
+    background-color: thistle;
+}
+div#paddingBox{
+    display: block;
+    background-color: lightblue;
+    height: 60px;
+}
