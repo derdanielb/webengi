@@ -10,9 +10,31 @@
     <h1 id="h1Center">Demonstration der CSS-Box</h1>
     <p> Auf dieser Homepage wird die Zusammensetzung der CSS-Box in einem Step-by-Step-Verfahren ausführlich
         visualisiert.</p>
-    <aside></aside>
+    <aside><h2>Inhalt</h2>
+        <ul>
+
+            <li><a href="#vorbereitung">Vorbereitung</a></li>
+            <li><a href="#box">Das Fundament</a></li>
+            <li><a href="#padding">Der Innenabstand</a></li>
+            <li><a href="#border">Der Rahmen</a></li>
+            <li><a href="#margin">Der Außenabstand</a></li>
+            <li><a href="#conclusion">Zusammenfassung</a></li>
+        </ul>
+    </aside>
     <section id="contentSection">
-        <article><h2>Das Fundament</h2>
+        <article><a name="vorbereitung"><h2>Vorbereitung</h2></a>
+            <p>Es sollte bei jedem CSS-Dokument zu Beginn die folgenden Zeilen eingefügt werden. Ohne diese Zeilen dehnt
+                ein eingefügtes Padding die Größe der Box nach außen hin aus. Gerade weil diese Funktionalität optional
+                ist, sollte diese Verzerrung immer beachtet werden.</p>
+            <div class="htmlCode">html {
+                <br>box-sizing: border-box;
+                <br>}
+                <br/>*, *:before, *:after {
+                <br>box-sizing: inherit;
+                <br>}
+            </div>
+        </article>
+        <article><a name="box"><h2>Das Fundament</h2></a>
             <p>Als Basis haben wir eine einfache Box. Diese Box kann verschiedene Eigenschaften haben. Mindestens
                 aber besitzt Sie die Eigenschaften <i>"height"</i> (Höhe) und <i>"width"</i> (Weite). Unter Umständen,
                 wenn diese
@@ -40,12 +62,13 @@
             </div>
         </article>
         <article>
-            <h2>Der Innenabstand</h2>
+            <a name="padding"><h2>Der Innenabstand</h2></a>
             <p>Nachdem wir eine Box mit genauen Maßen erzeugt haben, arbeiten wir uns nun durch das CSS-Box-Model von
                 Innen nach Außen.
                 <br>Betrachten wir nun den inneren Abstand. Bei der Erstellung der Box fällt auf, dass der Inhalt der
                 Box ("Lorem ipsum") direkt am linken Rand der Box beginnt. Das kann unter Umständen nicht sehr schön
-                aussehen. Um den Abstand vom Rand der Box nach Innen zu definieren wird das Attribut <i>padding</i>("Polster")
+                aussehen. Um den Abstand vom Rand der Box nach Innen zu definieren wird das Attribut <i>padding</i>
+                ("Polster")
                 verwendet.
                 <br>Fügen wir unserer Box nun ein Padding Attribut hinzu. <i>padding</i> definiert den Abstand von allen
                 Seitenrändern. Soll allerdings nur der Abstand vom oberen Boxrand definiert werden, so kann das Attribut
@@ -57,12 +80,96 @@
                 <br/>}
             </div>
             <p>Das Ergebnis:
-                <br>Die Schrift in der Box beginnt nun um 20 Pixel nach recht und unten verschoben. Der Padding-Bereich ist in violett markiert.</p>
+                <br>Die Schrift in der Box beginnt nun um 20 Pixel nach recht und unten verschoben. Der Padding-Bereich
+                ist in violett markiert.</p>
             <div class="boxBase">
-                <div class="innerBox step2"><div id="paddingBox">Lorem ipsum</div></div>
+                <div class="innerBox step2">
+                    <div class="paddingBox">Lorem ipsum</div>
+                </div>
             </div>
+        </article>
+        <article>
+            <a name="border"><h2>Der Rahmen</h2></a>
+            <p>Von Innen nach Außen gesehen, folgt nach dem Padding der Rahmen der Box. Der Rahmen wird über das
+                Attribute <i>border</i> ("Grenze") angesprochen. Auch hier können, wie beim <i>padding</i>, die
+                einzelnen Seitenränder mit beispielsweise <i>border-top</i> angesprochen werden.
+                <br> Das Attribut <i>border</i> akzeptiert ein bis drei Attributwerte. Das sind Werte für die
+                <b>Farbe</b>, die <b>Dicke</b> und die <b>Art der Line</b>. Art der Linie bedeutet, ob die Line
+                beispielsweise gestrichelt oder durchgezogen ist.
+                <br> Wir fügen unserer Box nun einen Rand hinzu, der eine durchgezogene Linie besitzt (<i>solid</i>),
+                der 4 Pixel breit ist und die Farbe schwarz besitzt.
+            </p>
+            <div class="htmlCode">div#box {
+                <br>width: 200px;
+                <br>heigth: 100px;
+                <br>padding: 20px;
+                <br>border: 4px solid black;
+                <br/>}
+            </div>
+            <p>Das Ergebnis:</p>
+            <div class="boxBase">
+                <div class="innerBox step2 step3">
+                    <div class="paddingBox">Lorem ipsum</div>
+                </div>
+            </div>
+        </article>
+        <article>
+            <a name="margin"><h2>Der Außenabstand</h2></a>
+            <p>Den äußersten Ring des CSS-Box-Models beschreibt der Außenabstand der Box zu anderen umgebenden
+                Elementen. Den Außenabstand regelt das Attribut <i>margin</i> (Rand). Bei der <i>margin</i> lässt sich,
+                wie bereits bei <i>padding</i> und <i>border</i> kennengelernt, eine einzelne Seite nach dem selben
+                Muster ansprechen. Dabei kann beispielsweise das Attribut <i>margin-top</i> genutzt werden.</p>
+            <p>Wir wollen unserer Box nun einen Abstand nach Außen mit einer Weite von 10 Pixeln verpassen. Dazu fügen
+                wir wieder das Attribute-Werte-Paar in den CSS-Block ein.</p>
+            <div class="htmlCode">div#box {
+                <br>width: 200px;
+                <br>heigth: 100px;
+                <br>padding: 20px;
+                <br>border: 4px solid black;
+                <br>margin: 10px;
+                <br/>}
+            </div>
+            <p>Das Ergebnis:
+                <br>Der Bereich des Margin ist in grün markiert.</p>
+            <div class="boxBase">
+                <div class="step4">
+                    <div class="innerBox step2 step3">
+
+                        <div class="paddingBox">Lorem ipsum</div>
+
+                    </div>
+                </div>
+            </div>
+            <a name="conclusion"></a>
+            <h3>Zusammenfassung</h3>
+            <p>Zusammenfassend lässt sich das CSS-Box-Model
+                von Innen nach Außen zeigen:</p>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Box(inhalt)</td>
+                    <td>hellblau</td>
+                </tr>
+                <tr>
+                    <td>Padding</td>
+                    <td>violett</td>
+                </tr>
+                <tr>
+                    <td>Border</td>
+                    <td>schwarz</td>
+                </tr>
+                <tr>
+                    <td>Margin</td>
+                    <td>grün</td>
+                </tr>
+                </tbody>
+            </table>
+
         </article>
     </section>
 </div>
+<footer>
+    Website erstellt von Daniel im Rahmen des Modul Web Engineering.
+</footer>
 </body>
 </html>

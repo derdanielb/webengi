@@ -1,9 +1,9 @@
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+/*html {*/
+    /*box-sizing: border-box;*/
+/*}*/
+/**, *:before, *:after {*/
+    /*box-sizing: inherit;*/
+/*}*/
 body {
     text-align: center;
 
@@ -17,6 +17,7 @@ body {
     text-align: left;
     border: 1px solid darkred;
     background-color: InfoBackground;
+    margin-bottom: 300px;
 }
 
 #h1Center {
@@ -63,11 +64,29 @@ div.innerBox {
     vertical-align: middle;
 }
 div.step2{
+    width: 160px;
+    height: 60px;
     padding: 20px;
     background-color: thistle;
 }
-div#paddingBox{
+div.paddingBox{
     display: block;
     background-color: lightblue;
     height: 60px;
+}
+div.step3{
+    border: 4px solid black;
+}
+div.step4{
+    margin: auto;
+    position: relative;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    background-color: darkseagreen;
+    width: 228px;
+    height: 128px;
+}
+td{
+    width: 90px;
 }
