@@ -1,0 +1,138 @@
+/*html {*/
+    /*box-sizing: border-box;*/
+/*}*/
+/**, *:before, *:after {*/
+    /*box-sizing: inherit;*/
+/*}*/
+body {
+    text-align: center;
+background-color: #eff4ff;
+    font-family: "Segoe UI","Open Sans", serif;
+    margin-top: 0;
+    position: relative;
+    top: -22px;
+    /*overflow-x: hidden;*/
+    margin-left: 0;
+    margin-right: 0;
+}
+#topbar{
+    background-color: #2b5797;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    color: white;
+    /*padding-top: 55px;*/
+    /*z-index: 2;*/
+    margin: 0;
+    padding: 0;
+    /*left: -8px;*/
+
+}
+#topbarmini{
+    background-color: #2b5797;
+    width: 100%;
+    height: 50px;
+    /*text-align: center;*/
+    color: white;
+    padding-top: 55px;
+    position: fixed;
+    z-index: 1;
+    top:0;
+}
+
+#centerContainer {
+    padding: 20px;
+    width: 800px;
+    display: block;
+    text-align: left;
+    border: 1px solid #2b5797;
+    background-color: #eff4ff;
+    position: relative;
+    left: 50%;
+    min-width: 570px;
+    margin: 30px auto 300px -29%;
+}
+
+#h1Center {
+    text-align: left;
+    width: 840px;
+    margin: auto;
+    top:40%;
+    position: relative;
+}
+#h1Centermini{
+    text-align: left;
+    width: 840px;
+    margin: auto;
+    /*top:10%;*/
+    position: relative;
+    margin-left: 21%;
+    margin-right: 0;
+}
+
+#contentSection {
+    display: inline-block;
+}
+
+aside {
+    display: inline-block;
+}
+
+.htmlCode {
+    background-color: antiquewhite;
+    font-family: Consolas;
+    border: solid 1px burlywood;
+    display: inline-block;
+    margin-left: 50px;
+    padding: 20px;
+    width: 400px;
+}
+
+div.boxBase {
+    margin-left: 50px;
+    width: 300px;
+    height: 200px;
+    /*text-align: center;*/
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    background-color: white;
+
+}
+
+div.innerBox {
+
+    position: relative;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    vertical-align: middle;
+}
+div.step2{
+    width: 160px;
+    height: 60px;
+    padding: 20px;
+    background-color: thistle;
+}
+div.paddingBox{
+    display: block;
+    background-color: lightblue;
+    height: 60px;
+}
+div.step3{
+    border: 4px solid black;
+}
+div.step4{
+    margin: auto;
+    position: relative;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    background-color: darkseagreen;
+    width: 228px;
+    height: 128px;
+}
+td{
+    width: 90px;
+}

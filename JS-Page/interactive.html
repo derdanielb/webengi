@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css4js.css">
     <title>Zeichnen mit Canvas</title>
 </head>
 <body>
+<div id="topbar"></div>
+<div id="topbarmini"><h1 id="h1Centermini">Zeichnen mit Canvas</h1></div>
+<div id="fixedbox">
+<div id="centerContainer">
 
+    <p> Auf dieser Homepage werden dem Leser die Möglichkeiten des On-The-Fly-Zeichnens mit Canvas-Objekten vorgestellt.</p>
+    <aside><h2>Inhalt</h2>
+        <ul>
+
+            <li><a href="#vorbereitung">Vorbereitung</a></li>
+            <li><a href="#box">Das Fundament</a></li>
+            <li><a href="#padding">Der Innenabstand</a></li>
+            <li><a href="#border">Der Rahmen</a></li>
+            <li><a href="#margin">Der Außenabstand</a></li>
+            <li><a href="#conclusion">Zusammenfassung</a></li>
+        </ul>
+    </aside>
+    <section id="contentSection">
+        <article><a name="vorbereitung"><h2>Vorbereitung</h2></a>
+            <p>Es sollte bei jedem CSS-Dokument zu Beginn die folgenden Zeilen eingefügt werden. Ohne diese Zeilen dehnt
+                ein eingefügtes Padding die Größe der Box nach außen hin aus. Gerade weil diese Funktionalität nur optional
+                eingesetzt wird, sollte diese Verzerrung immer im Hinterkopf sein und beachtet werden.</p>
+            <div class="htmlCode">html {
+                <br>box-sizing: border-box;
+                <br>}
+                <br/>*, *:before, *:after {
+                <br>box-sizing: inherit;
+                <br>}
+            </div>
+        </article>
+        </section>
+    </div>
+</div>
 </body>
 </html>
