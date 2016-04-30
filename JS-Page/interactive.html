@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css4js.css">
+    <script type="text/javascript" src="canvasdrawing.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <title>Zeichnen mit Canvas</title>
 </head>
 <body>
@@ -33,17 +35,28 @@
                     des Users gezeichnet werden.</p>
                 <p>Um mit einem Canvas-Objekt arbeiten zu können, benötigen wir zunächst ein im HTML5-Kontext
                     definiertes Canvas-Element. Das Canvas-Element verhält sich ähnlich wie ein &lt;img&gt;-Element,
-                    jedoch enthält es keine <i>src</i>-Eigenschaft. Die Attribute <i>width</i> und <i>height</i> sind
+                    jedoch enthält es keine <i>src</i>-Eigenschaft. Und zusätzlich benötigt es zwingend einen
+                    geschlossenen End-Tag. Die Attribute <i>width</i> und <i>height</i> sind
                     optional. Werden sie nicht definiert, hat das Canvas eine Default-Größe von 300x300 Pixel.</p>
                 <div class="htmlCode">
-                    &lt;canvas id="tutorial" width="150" height="150"&gt;&lt;/canvas&gt;
+                    &lt;canvas id="canvasOne" width="150" height="150"&gt;&lt;/canvas&gt;
                 </div>
                 <p>Das Canvas-Element kann via CSS wie jedes &lt;img&gt;-Element über Margin, Border, etc. gestyled
                     werden. Es empfiehlt sich für nicht kompatible Browser ein Fallback-Image zu hinterlegen. Dieses
                     Image wird einfach zwischen den beiden Canvas-Tags abgelegt.</p>
+                <p>In einem Canvas wird über JavaScript-Funktionen gezeichnet. Dazu benötige wird den Canvas-Kontext.
+                    Diesen holen wir uns mit folgendem Code:</p>
+                <div class="htmlCode">
+                    var canvas = document.getElementById('canvasOne');
+                    <br>var ctx = canvas.getContext('2d');
+                </div>
             </article>
             <article>
-                <a name="drawline"><h2>Linien zeichnen</h2>
+                <a name="drawRect"><h2>Rechtecke zeichnen</h2>
+                    <p>Eine gute Möglichkeit mit dem Canvas zeichnen zu beginnen ist es, Rechtecke zu zeichnen.
+                        Rechtecke werden mit den Parametern x,y Koordinaten angegeben und den Seitenlängen. Also
+                        insgesamt vier Parameter. Zudem muss eine Füllfarbe festgelegt werden. Diese ist standardmäßig schwarz.</p>
+                    <canvas id="drawCanvasOne" onclick="catchClick(event, this)"></canvas>
             </article>
         </section>
 
