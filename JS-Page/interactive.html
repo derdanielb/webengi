@@ -9,34 +9,44 @@
 <div id="topbar"></div>
 <div id="topbarmini"><h1 id="h1Centermini">Zeichnen mit Canvas</h1></div>
 <div id="fixedbox">
-<div id="centerContainer">
+    <div id="centerContainer">
 
-    <p> Auf dieser Homepage werden dem Leser die Möglichkeiten des On-The-Fly-Zeichnens mit Canvas-Objekten vorgestellt.</p>
-    <aside><h2>Inhalt</h2>
-        <ul>
+        <p> Auf dieser Homepage werden dem Leser die Möglichkeiten des On-The-Fly-Zeichnens mit Canvas-Objekten
+            vorgestellt.</p>
+        <aside><h2>Inhalt</h2>
+            <ul>
 
-            <li><a href="#vorbereitung">Vorbereitung</a></li>
-            <li><a href="#box">Das Fundament</a></li>
-            <li><a href="#padding">Der Innenabstand</a></li>
-            <li><a href="#border">Der Rahmen</a></li>
-            <li><a href="#margin">Der Außenabstand</a></li>
-            <li><a href="#conclusion">Zusammenfassung</a></li>
-        </ul>
-    </aside>
-    <section id="contentSection">
-        <article><a name="vorbereitung"><h2>Vorbereitung</h2></a>
-            <p>Es sollte bei jedem CSS-Dokument zu Beginn die folgenden Zeilen eingefügt werden. Ohne diese Zeilen dehnt
-                ein eingefügtes Padding die Größe der Box nach außen hin aus. Gerade weil diese Funktionalität nur optional
-                eingesetzt wird, sollte diese Verzerrung immer im Hinterkopf sein und beachtet werden.</p>
-            <div class="htmlCode">html {
-                <br>box-sizing: border-box;
-                <br>}
-                <br/>*, *:before, *:after {
-                <br>box-sizing: inherit;
-                <br>}
-            </div>
-        </article>
+                <li><a href="#vorbereitung">Vorbereitung</a></li>
+                <li><a href="#box">Das Fundament</a></li>
+                <li><a href="#padding">Der Innenabstand</a></li>
+                <li><a href="#border">Der Rahmen</a></li>
+                <li><a href="#margin">Der Außenabstand</a></li>
+                <li><a href="#conclusion">Zusammenfassung</a></li>
+            </ul>
+        </aside>
+        <section id="contentSection">
+            <article><a name="vorbereitung"><h2>Einführung Canvas</h2></a>
+                <p>Mit der Einführung von HTML5 im Jahr 2014 hielt auch das HTML5-Element &lt;CANVAS&gt; Einzug. Die
+                    Verwendung von <i>Canvas</i> ist also eine noch relativ junge Technologie. Canvas ermöglichen es dem
+                    Web-Entwickler direkt innerhalb des Browsers mit nativen Befehlen zu zeichnen. Canvas benötigen
+                    keine zusätzlichen Plugins (wie z.B. Adobe Flash o.ä.), sondern können direkt on-the-fly im Browser
+                    des Users gezeichnet werden.</p>
+                <p>Um mit einem Canvas-Objekt arbeiten zu können, benötigen wir zunächst ein im HTML5-Kontext
+                    definiertes Canvas-Element. Das Canvas-Element verhält sich ähnlich wie ein &lt;img&gt;-Element,
+                    jedoch enthält es keine <i>src</i>-Eigenschaft. Die Attribute <i>width</i> und <i>height</i> sind
+                    optional. Werden sie nicht definiert, hat das Canvas eine Default-Größe von 300x300 Pixel.</p>
+                <div class="htmlCode">
+                    &lt;canvas id="tutorial" width="150" height="150"&gt;&lt;/canvas&gt;
+                </div>
+                <p>Das Canvas-Element kann via CSS wie jedes &lt;img&gt;-Element über Margin, Border, etc. gestyled
+                    werden. Es empfiehlt sich für nicht kompatible Browser ein Fallback-Image zu hinterlegen. Dieses
+                    Image wird einfach zwischen den beiden Canvas-Tags abgelegt.</p>
+            </article>
+            <article>
+                <a name="drawline"><h2>Linien zeichnen</h2>
+            </article>
         </section>
+
     </div>
 </div>
 </body>

@@ -6,7 +6,7 @@
 /*}*/
 body {
     text-align: center;
-background-color: #eff4ff;
+/*background-color: #eff4ff;*/
     font-family: "Segoe UI","Open Sans", serif;
     margin-top: 0;
     position: relative;
@@ -31,10 +31,11 @@ background-color: #eff4ff;
 #topbarmini{
     background-color: #2b5797;
     width: 100%;
-    height: 50px;
+    /*height: 50px;*/
     /*text-align: center;*/
     color: white;
-    padding-top: 55px;
+    padding-top: 50px;
+    padding-bottom: 20px;
     position: fixed;
     z-index: 1;
     top:0;
@@ -42,14 +43,14 @@ background-color: #eff4ff;
 
 #centerContainer {
     padding: 20px;
-    width: 800px;
+    width: 50%;
     display: block;
     text-align: left;
     border: 1px solid #2b5797;
     background-color: #eff4ff;
     position: relative;
     left: 50%;
-    min-width: 570px;
+    min-width: 185px;
     margin: 30px auto 300px -29%;
 }
 
@@ -62,7 +63,7 @@ background-color: #eff4ff;
 }
 #h1Centermini{
     text-align: left;
-    width: 840px;
+    /*width: 840px;*/
     margin: auto;
     /*top:10%;*/
     position: relative;
@@ -85,7 +86,7 @@ aside {
     display: inline-block;
     margin-left: 50px;
     padding: 20px;
-    width: 400px;
+    width: 50%;
 }
 
 div.boxBase {
@@ -136,3 +137,34 @@ div.step4{
 td{
     width: 90px;
 }
+@media (max-width: 393px) {
+    #centerContainer {
+        /*margin: 0;*/
+        padding: 20px;
+        width: 50%;
+        display: block;
+        text-align: left;
+        border: 1px solid #2b5797;
+        background-color: #eff4ff;
+        position: relative;
+        left: 40%;
+        min-width: 185px;
+        margin: 30px auto 300px -29%;
+        /*background-color:red;*/
+    }
+    #h1Centermini{
+        left:-9%;
+        word-wrap: break-word;
+    }
+    .htmlCode {
+        margin: 0;
+        width: 75%;
+    }
+    #topbarmini{
+        padding-top: 0;
+
+    }
+
+
+
+     }
