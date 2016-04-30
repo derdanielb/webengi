@@ -37,9 +37,10 @@
                     definiertes Canvas-Element. Das Canvas-Element verhält sich ähnlich wie ein &lt;img&gt;-Element,
                     jedoch enthält es keine <i>src</i>-Eigenschaft. Und zusätzlich benötigt es zwingend einen
                     geschlossenen End-Tag. Die Attribute <i>width</i> und <i>height</i> sind
-                    optional. Werden sie nicht definiert, hat das Canvas eine Default-Größe von 300x300 Pixel.</p>
+                    optional. Werden sie nicht definiert, hat das Canvas eine Default-Größe von 300x300 Pixel. Ein
+                    ID-Attribut ist nötig, damit wir das Canvas später ansprechen können.</p>
                 <div class="htmlCode">
-                    &lt;canvas id="canvasOne" width="150" height="150"&gt;&lt;/canvas&gt;
+                    &lt;canvas id="canvasOne" width="300" height="150"&gt;&lt;/canvas&gt;
                 </div>
                 <p>Das Canvas-Element kann via CSS wie jedes &lt;img&gt;-Element über Margin, Border, etc. gestyled
                     werden. Es empfiehlt sich für nicht kompatible Browser ein Fallback-Image zu hinterlegen. Dieses
@@ -53,10 +54,59 @@
             </article>
             <article>
                 <a name="drawRect"><h2>Rechtecke zeichnen</h2></a>
-                    <p>Eine gute Möglichkeit mit dem Canvas zeichnen zu beginnen ist es, Rechtecke zu zeichnen.
-                        Rechtecke werden mit den Parametern x,y Koordinaten angegeben und den Seitenlängen. Also
-                        insgesamt vier Parameter. Zudem muss eine Füllfarbe festgelegt werden. Diese ist standardmäßig schwarz.</p>
-                    <canvas id="drawCanvasOne" onclick="catchClick(event, this)"></canvas>
+                <p>Eine gute Möglichkeit mit dem Canvas zeichnen zu beginnen ist es, Rechtecke zu zeichnen.
+                    Rechtecke werden mit den Parametern x,y Koordinaten angegeben und den Seitenlängen. Also
+                    insgesamt vier Parameter. Zudem muss eine Füllfarbe festgelegt werden. Diese ist standardmäßig
+                    schwarz. Das Rechteck ist die einzige primitive Form, die Canvas unterstützen. Alles andere muss aus
+                    <i>"Paths"</i> und den Rechtecken zusammengebaut werden. </p>
+                <p>Gezeichnet wird weiterhin auf dem <i>2d-Kontext</i>,
+                    welchen wir vorher vom Canvas-Element
+                    erzeugt haben. Dies resultiert in folgendem Code, wobei <i>color</i> ein Hex-Code ist, alternativ
+                    aber auch per
+                    RGN-String(<i>"rgb(200,0,0)";</i>) angegeben werden kann. X,Y entsprechen den Koordinaten im Canvas,
+                    wo der Startpunkt des Rechtecks gesetzt wird.</p>
+                <div class="htmlCode">
+                    ctx.fillStyle = color;
+                    <br> ctx.fillRect (x, y, 55, 50);
+                </div>
+                <p>Im folgenden Canvas ist eine Demo untergebracht. Ein Klick darauf zeichnet ein Rechteck mit
+                    zufälliger Farbe an die Position des Mauszeigers.</p>
+                <p><b>Bitte in das Canvas klicken</b></p>
+                <canvas id="drawCanvasOne" onclick="catchClickRect(this,event)" width="300px" height="300px"></canvas>
+                <p>Ein Rechtsklick auf das Canvas verdeutlicht, dass das Canvas-Element ein Image ist. Es kann als
+                    Bilddatei abgespeichert werden.</p>
+            </article>
+            <article>
+                <a name="drawPath"><h2>"Paths" zeichnen</h2></a>
+                <p>Ein <i>Path</i> (Pfad) ist die zweite primitive Form, die ein Canvas anbietet. Mit den Pfaden können
+                    innerhalb eines Canvas Linien gezeichnet werden. Dieses Zeichnen besteht aus einer Kette von
+                    Befehlen. Diese Beginnt initial mit der Aufforderung die Pfadzeichnung zu beginnen. Danach wird der
+                    Zeichenpunkt auf einen Startpunkt mit X und Y Koordinaten innerhalb des Canvas verschoben. Darauf
+                    wird das Ziel mit <i>lineTo</i> festgelegt. Auch hierbei werden wieder Koordinaten in X und Y Form
+                    verwendet. Der Befehl <i>lineTo</i> kann beliebig oft hintereinander verwendet werden. Damit kann
+                    dann nicht nur eine Linie, sondern als Kombination ein kompletter Pfad beschrieben werden. Wenn die
+                    Beschreibung vollständig ist, wird der Pfad mit <i>stroke</i> geplottet.</p>
+                <div class="htmlCode">
+                    ctx.beginPath();
+                    <br> ctx.moveTo(StartX,StartY);
+                    <br>ctx.lineTo(TargetX,TargetY);
+                    <br>ctx.stroke();
+                </div>
+                <p>Im folgenden Canvas ist eine Demo untergebracht. Ein Klick darauf zeichnet einen Pfad mit
+                    zufälliger Farbe an die Position des Mauszeigers von der Position des letzten Pfades.</p>
+                <p><b>Bitte in das Canvas klicken</b></p>
+                <canvas id="drawCanvasTwo" onclick="catchClickLine(this,event)" width="300px" height="300px"></canvas>
+                <p>Der Pfad kann weiter mit verschiedenen Attributen beschrieben werden. Diese können nach jeder <i>lineTo</i>
+                    erneut verändert werden und wirken sich dann auf die nachfolgende Beschreibung aus. <br>Der <i>strokeStyle</i>
+                    beschreibt die Farbe des Pfades. Dieses kann ein Hex-Code oder eine RGB-Code sein.
+                    <br>Die <i>lineWidth</i> nimmt einen Integer-Wert entgegen und beschreibt die Dicke der gezeichneten Linie.
+                    <br>Das <i>lineCap</i> beschreibt, wie das Ende eine Linie dargestellt wird. Es sind die Stringwerte "butt","round","square" gültig, wobei "round" zum Beispiel für <i>abgerundet</i> steht.</p>
+                <div class="htmlCode">
+//In der Demo verwendetes Setting
+                    <br>ctx.strokeStyle = color;
+                    <br>ctx.lineWidth = 3; //int
+                    <br>ctx.lineCap = "round"; //butt, round, square
+                </div>
             </article>
         </section>
 

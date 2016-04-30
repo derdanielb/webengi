@@ -80,12 +80,17 @@ aside {
     display: inline;
 }
 
+canvas{
+    margin-left: 50px;
+    background-color: white;
+    border: 1px solid black;
+}
 .htmlCode {
     /*background-color: antiquewhite;*/
     background-color: #F7D488;
     font-family: Consolas;
     border: solid 1px burlywood;
-    display: inline-block;
+    display: block;
     margin-left: 50px;
     padding: 20px;
     width: 50%;
