@@ -5,27 +5,16 @@
     <link rel="stylesheet" href="css4js.css">
     <script type="text/javascript" src="canvasdrawing.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <title>Zeichnen mit Canvas</title>
+    <title>Zeichnen mit Canvas - Basics</title>
 </head>
 <body>
 <div id="topbar"></div>
-<div id="topbarmini"><h1 id="h1Centermini">Zeichnen mit Canvas</h1></div>
+<div id="topbarmini"><h1 id="h1Centermini">Zeichnen mit Canvas</h1><nav id="navx"><h4>|</h4><h4><a href="interactive.html">Basics</a></h4><h4>|</h4><h4>
+    <a href="interactive_2.html">Advanced</a></h4><h4>|</h4><h4><a href="interactive_3.html">Animation</a></h4><h4>|</h4></nav></div>
 <div id="fixedbox">
     <div id="centerContainer">
 
-        <p> Auf dieser Homepage werden dem Leser die Möglichkeiten des On-The-Fly-Zeichnens mit Canvas-Objekten
-            vorgestellt.</p>
-        <aside><h2>Inhalt</h2>
-            <ul>
 
-                <li><a href="#vorbereitung">Vorbereitung</a></li>
-                <li><a href="#box">Das Fundament</a></li>
-                <li><a href="#padding">Der Innenabstand</a></li>
-                <li><a href="#border">Der Rahmen</a></li>
-                <li><a href="#margin">Der Außenabstand</a></li>
-                <li><a href="#conclusion">Zusammenfassung</a></li>
-            </ul>
-        </aside>
         <section id="contentSection">
             <article><a name="vorbereitung"><h2>Einführung Canvas</h2></a>
                 <p>Mit der Einführung von HTML5 im Jahr 2014 hielt auch das HTML5-Element &lt;CANVAS&gt; Einzug. Die
@@ -63,7 +52,8 @@
                     welchen wir vorher vom Canvas-Element
                     erzeugt haben. Dies resultiert in folgendem Code, wobei <i>color</i> ein Hex-Code ist, alternativ
                     aber auch per
-                    RGN-String(<i>"rgb(200,0,0)";</i>) angegeben werden kann. X,Y entsprechen den Koordinaten im Canvas,
+                    RGN-String(<i>"rgb(200,0,0)";</i>) angegeben werden kann. Zusätzlich ist auch die Angabe eines
+                    Alpha-Kanals möglich. X,Y entsprechen den Koordinaten im Canvas,
                     wo der Startpunkt des Rechtecks gesetzt wird.</p>
                 <div class="htmlCode">
                     ctx.fillStyle = color;
@@ -99,15 +89,18 @@
                 <p>Der Pfad kann weiter mit verschiedenen Attributen beschrieben werden. Diese können nach jeder <i>lineTo</i>
                     erneut verändert werden und wirken sich dann auf die nachfolgende Beschreibung aus. <br>Der <i>strokeStyle</i>
                     beschreibt die Farbe des Pfades. Dieses kann ein Hex-Code oder eine RGB-Code sein.
-                    <br>Die <i>lineWidth</i> nimmt einen Integer-Wert entgegen und beschreibt die Dicke der gezeichneten Linie.
-                    <br>Das <i>lineCap</i> beschreibt, wie das Ende eine Linie dargestellt wird. Es sind die Stringwerte "butt","round","square" gültig, wobei "round" zum Beispiel für <i>abgerundet</i> steht.</p>
+                    <br>Die <i>lineWidth</i> nimmt einen Integer-Wert entgegen und beschreibt die Dicke der gezeichneten
+                    Linie.
+                    <br>Das <i>lineCap</i> beschreibt, wie das Ende eine Linie dargestellt wird. Es sind die Stringwerte
+                    "butt","round","square" gültig, wobei "round" zum Beispiel für <i>abgerundet</i> steht.</p>
                 <div class="htmlCode">
-//In der Demo verwendetes Setting
+                    //In der Demo verwendetes Setting
                     <br>ctx.strokeStyle = color;
                     <br>ctx.lineWidth = 3; //int
                     <br>ctx.lineCap = "round"; //butt, round, square
                 </div>
             </article>
+            <p><a href="interactive_2.html">Weiter zu <i>Advanced</i></a></p>
         </section>
 
     </div>

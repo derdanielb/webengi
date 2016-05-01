@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css4js.css">
+    <script type="text/javascript" src="canvasdrawing.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <title>Zeichnen mit Canvas - Advanced</title>
+</head>
+<body>
+<div id="topbar"></div>
+<div id="topbarmini"><h1 id="h1Centermini">Zeichnen mit Canvas</h1>
+    <nav id="navx"><h4>|</h4><h4><a href="interactive.html">Basics</a></h4><h4>|</h4><h4>
+        <a href="interactive_2.html">Advanced</a></h4><h4>|</h4><h4><a href="interactive_3.html">Animation</a></h4><h4>
+        |</h4></nav>
+</div>
+<div id="fixedbox">
+    <div id="centerContainer">
+        <section id="contentSection">
+            <article><a name=""><h2>Kreise zeichnen</h2></a>
+                <p>Nun wollen wir in unserem Canvas einen Kreis zeichnen. Für den Kreis benutzen wir die <i>arc()-</i>
+                    oder <i>arcTo()</i>-Methode. Beide Methoden benötigen die Übergabe von fünf bzw. sechs Parametern. Diese
+                    unterscheiden sich jedoch zwischen <i>arch()</i> und <i>arcTo()</i>. Schauen wir uns die Parameter
+                    einmal genauer an.</p>
+                <p><i>arc()</i></p>
+                <div class="htmlCode">arc(x, y, radius, startAngle, endAngle, anticlockwise)</div>
+                <p>
+                <ul>
+                    <li><i>X</i> und <i>Y</i> geben die Koordinate an, die den Mittelpunkt des zu zeichnenden Kreises
+                        darstellt.
+                    </li>
+                    <li><i>radius</i> gibt den Radius des Kreises an.</li>
+                    <li><i>startAngle</i> ist der Winkel, ab wo der Kreis angefangen wird zu zeichnen.</li>
+                    <li><i>endAngle</i> ist dann folglich der Winkel, wo der Zeichnung aufhört.</li>
+                    <li><i>anticlockwise</i> erwartet einen booleschen Wert und bestimmt, ob die Zeichnung gegen den
+                        Uhrzeigersinn ausgeführt wird oder nicht.
+                    </li>
+                </ul>
+                </p>
+                <p><i>arcTo()</i>
+                    <br>... dient dazu beim zeichnen einer Linie einen Bogen zu zeichnen. Es werden also zwei Punkte(x1/y1 und x2/y2) mit einer Kreislinie verbunden.</p>
+                <div class="htmlCode">arcTo(x1, y1, x2, y2, radius)</div>
+                <ul>
+                    <li><i>X1</i> und <i>Y1</i> geben die Koordinate an, an welchem der zu zeichnenden Kreis beginnt.</li>
+                    <li><i>X2</i> und <i>Y2</i> geben die Koordinate an, an welchem der zu zeichnenden Kreis endet.</li>
+                    <li><i>radius</i> gibt den Radius des Kreises an.</li>
+                </ul>
+            </article>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>

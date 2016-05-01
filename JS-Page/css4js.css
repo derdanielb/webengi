@@ -15,10 +15,30 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
+h4{
+    margin-left: 10px;
+}
+h4 > a:link{
+    color: white;
+    text-decoration: none;
+}
+h4 > a:visited{
+    color: white;
+    text-decoration: none;
+}
+#navx{
+    display: flex;
+    margin-top: 7px;
+    margin-left: 37px;
+    width:19%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    min-width: 184px;
+}
 #topbar{
     background-color: #2b5797;
     width: 100%;
-    height: 200px;
+    height: 190px;
     text-align: center;
     color: white;
     /*padding-top: 55px;*/
@@ -34,11 +54,14 @@ body {
     /*height: 50px;*/
     /*text-align: center;*/
     color: white;
-    padding-top: 50px;
+    padding-top: 34px;
     padding-bottom: 20px;
     position: fixed;
     z-index: 1;
     top:0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     /*border-bottom: 1px solid white;*/
 }
 
@@ -70,6 +93,7 @@ body {
     position: relative;
     margin-left: 21%;
     margin-right: 0;
+
 }
 
 #contentSection {
