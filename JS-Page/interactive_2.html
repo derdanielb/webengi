@@ -45,6 +45,29 @@
                     <li><i>X2</i> und <i>Y2</i> geben die Koordinate an, an welchem der zu zeichnenden Kreis endet.</li>
                     <li><i>radius</i> gibt den Radius des Kreises an.</li>
                 </ul>
+                <p>Die Kreiszeichnung muss wieder mit einem <i>.stroke()</i> oder <i>.fill()</i> abschlossen werden. Damit wird die beschrieben Kreisform geplottet bzw. ausgefüllt.</p>
+                <p>Das folgende Beispiel ist aus dem <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes">Mozilla Developer Network</a> entnommen. Zu Demonstrationszwecken ist der folgende original Code etwas abgewandelt.</p>
+                <div class="htmlCode">var canvas = document.getElementById('canvas');
+                    <br> if (canvas.getContext){
+                    <br>var ctx = canvas.getContext('2d');
+                    <br>
+                    <br>for(var i=0;i<4;i++){
+                    <br>for(var j=0;j<3;j++){
+                    <br> ctx.beginPath();
+                    <br>var x = 25+j*50; // x coordinate
+                    <br>var y = 25+i*50; // y coordinate
+                    <br> var radius = 20; // Arc radius
+                    <br>var startAngle = 0; // Starting point on circle
+                    <br>var endAngle = Math.PI+(Math.PI*j)/2; // End point on circle
+                    <br>var anticlockwise = i%2==0 ? false : true; // clockwise or anticlockwise
+                    <br>
+                    <br>ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+                    <br>
+                    <br> if (i>1){
+                    <br>ctx.fill();
+                    <br>} else {
+                    <br>ctx.stroke();}}}}</div>
+                <canvas id="drawCanvasThree"></canvas>
             </article>
         </section>
     </div>
