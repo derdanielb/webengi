@@ -19,7 +19,8 @@
         <section id="contentSection">
             <article><a name=""><h2>Kreise zeichnen</h2></a>
                 <p>Nun wollen wir in unserem Canvas einen Kreis zeichnen. Für den Kreis benutzen wir die <i>arc()-</i>
-                    oder <i>arcTo()</i>-Methode. Beide Methoden benötigen die Übergabe von fünf bzw. sechs Parametern. Diese
+                    oder <i>arcTo()</i>-Methode. Beide Methoden benötigen die Übergabe von fünf bzw. sechs Parametern.
+                    Diese
                     unterscheiden sich jedoch zwischen <i>arch()</i> und <i>arcTo()</i>. Schauen wir uns die Parameter
                     einmal genauer an.</p>
                 <p><i>arc()</i></p>
@@ -38,15 +39,21 @@
                 </ul>
                 </p>
                 <p><i>arcTo()</i>
-                    <br>... dient dazu beim zeichnen einer Linie einen Bogen zu zeichnen. Es werden also zwei Punkte(x1/y1 und x2/y2) mit einer Kreislinie verbunden.</p>
+                    <br>... dient dazu beim zeichnen einer Linie einen Bogen zu zeichnen. Es werden also zwei
+                    Punkte(x1/y1 und x2/y2) mit einer Kreislinie verbunden.</p>
                 <div class="htmlCode">arcTo(x1, y1, x2, y2, radius)</div>
                 <ul>
-                    <li><i>X1</i> und <i>Y1</i> geben die Koordinate an, an welchem der zu zeichnenden Kreis beginnt.</li>
+                    <li><i>X1</i> und <i>Y1</i> geben die Koordinate an, an welchem der zu zeichnenden Kreis beginnt.
+                    </li>
                     <li><i>X2</i> und <i>Y2</i> geben die Koordinate an, an welchem der zu zeichnenden Kreis endet.</li>
                     <li><i>radius</i> gibt den Radius des Kreises an.</li>
                 </ul>
-                <p>Die Kreiszeichnung muss wieder mit einem <i>.stroke()</i> oder <i>.fill()</i> abschlossen werden. Damit wird die beschrieben Kreisform geplottet bzw. ausgefüllt.</p>
-                <p>Das folgende Beispiel ist aus dem <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes">Mozilla Developer Network</a> entnommen. Zu Demonstrationszwecken ist der folgende original Code etwas abgewandelt.</p>
+                <p>Die Kreiszeichnung muss wieder mit einem <i>.stroke()</i> oder <i>.fill()</i> abschlossen werden.
+                    Damit wird die beschrieben Kreisform geplottet bzw. ausgefüllt.</p>
+                <p>Das folgende Beispiel ist aus dem <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#Arcs">Mozilla
+                    Developer Network</a> entnommen. Zu Demonstrationszwecken ist der folgende original Code etwas
+                    abgewandelt.</p>
                 <div class="htmlCode">var canvas = document.getElementById('canvas');
                     <br> if (canvas.getContext){
                     <br>var ctx = canvas.getContext('2d');
@@ -66,9 +73,79 @@
                     <br> if (i>1){
                     <br>ctx.fill();
                     <br>} else {
-                    <br>ctx.stroke();}}}}</div>
-                <canvas id="drawCanvasThree"></canvas>
+                    <br>ctx.stroke();}}}}
+                </div>
+                <p>Der Code resultiert in folgende Kreisbeispielen:</p>
+                <canvas id="drawCanvasThree" width="150px"></canvas>
             </article>
+            <article><h2>Gradients</h2>
+                <p>Wie bei vielen Zeichenprogrammen haben wir auch bei Canvas die Möglichkeit einen Gradientenverlauf zu
+                    erstellen. Dazu gibt es zwei verschiedene Methoden, jeweils um einen linearen oder einen
+                    kreisförmigen Gradienten zu erzeugen. Diese nehmen vier bzw. sechs Parameter entgegen. Diese beiden
+                    Methoden geben ein Gradientenobjekt zurück, welches wir dann den "FillStyle"-Methoden als "Farbe"
+                    zuweisen können.</p>
+                <div class="htmlCode">
+                    var lineargradient = ctx.createLinearGradient(x1, y1, x2, y2)
+                </div>
+                <p></p>
+                <div class="htmlCode">var radialgradient = ctx.createRadialGradient(x1, y1, r1, x2, y2, r2)</div>
+                <p>Der lineare Gradient ist relativ simpel. Er nimmt zwei Koordinaten entgegen und erzeugt einen
+                    Gradient von <i>X1/Y1</i> nach <i>X2/Y2</i>.
+                    <br>Beim radialen Gradienten verhält sich die Erzeugung geringfügig komplexer. <i>X1/Y1/R1</i>
+                    stellen den
+                    ersten Kreis mit Mittelpunkt <i>X1/Y1</i> und Radius <i>R1</i> dar. Der zweite Kreis wird analog mit
+                    <i>X2/Y2/R2</i>
+                    beschrieben. Der Gradient verläuft zwischen diesen Kreisen.
+                    <br>Nachdem die Gradientenobjekte erzeugt wurden, müssen diese noch verschiedene Farbabstufungen
+                    zugewiesen werden. Das geschieht mit der folgenden Methode, die vom Gradientenobjekt zur Verfügung
+                    gestellt wird.</p>
+                <div class="htmlCode"> lineargradient.addColorStop(0.5, '#000');
+                    <br>lineargradient.addColorStop(1, 'rgba(0,0,0,0)');
+                </div>
+                <p><i>addColorStop()</i> bekommt einen Parameter zwischen 0 und 1 übergeben, welcher die relative
+                    Position des Gradienten beschreibt. Zusätzlich benötigt die Methode eine CSS-konforme Farbangabe.
+                    Der Beispielcode zeigt einen einfachen Gradient von weiß nach schwarz.</p>
+                <p>Nun folgt ein komplexeres Beispiel zu mehrfach farbigen Kreisgradienten. Das Beispiel ist dem <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors#A_createRadialGradient_example">Mozilla
+                    Developer Network</a> entnommen. Es demonstriert sehr schön, wie mit wenigen Zeilen Code ein
+                    durchaus beeindruckendes Bild mit mathematisch präzisen Farbverläufen erstellt werden kann.</p>
+                <canvas id="drawCanvasFour" width="150px"></canvas>
+                <p>Das folgende Code-Snippet ist für dieses bunte Gradientenbild verantwortlich.</p>
+                <div class="htmlCode"> var ctx = document.getElementById('anyCanvas').getContext('2d');
+                    <br>
+                    <br>// Create gradients
+                    <br>var radgrad = ctx.createRadialGradient(45,45,10,52,50,30);
+                    <br>radgrad.addColorStop(0, '#A7D30C');
+                    <br> radgrad.addColorStop(0.9, '#019F62');
+                    <br> radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+                    <br>
+                    <br>var radgrad2 = ctx.createRadialGradient(105,105,20,112,120,50);
+                    <br>radgrad2.addColorStop(0, '#FF5F98');
+                    <br> radgrad2.addColorStop(0.75, '#FF0188');
+                    <br> radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+                    <br>
+                    <br>var radgrad3 = ctx.createRadialGradient(95,15,15,102,20,40);
+                    <br>radgrad3.addColorStop(0, '#00C9FF');
+                    <br>radgrad3.addColorStop(0.8, '#00B5E2');
+                    <br>radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+                    <br>
+                    <br>var radgrad4 = ctx.createRadialGradient(0,150,50,0,140,90);
+                    <br> radgrad4.addColorStop(0, '#F4F201');
+                    <br>radgrad4.addColorStop(0.8, '#E4C700');
+                    <br> radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+                    <br>
+                    <br>// draw shapes
+                    <br>ctx.fillStyle = radgrad4;
+                    <br>ctx.fillRect(0,0,150,150);
+                    <br>ctx.fillStyle = radgrad3;
+                    <br> ctx.fillRect(0,0,150,150);
+                    <br> ctx.fillStyle = radgrad2;
+                    <br>ctx.fillRect(0,0,150,150);
+                    <br>ctx.fillStyle = radgrad;
+                    <br>ctx.fillRect(0,0,150,150);
+                </div>
+            </article>
+            <p><a href="interactive.html">Zurück zu <i>Basics</i></a><a style="float: right" href="interactive_3.html">Weiter zu <i>Animation</i></a></p>
         </section>
     </div>
 </div>
