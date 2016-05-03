@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css4js.css">
     <script type="text/javascript" src="canvasdrawing.js"></script>
+    <script type="text/javascript" src="canvasanimation.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <title>Zeichnen mit Canvas - Animation</title>
 </head>
 <body>
 <div id="topbar"></div>
-<div id="topbarmini"><h1 id="h1Centermini">Zeichnen mit Canvas</h1>
+<div id="topbarmini"><h1 id="h1Centermini"><a href="interactive.html">Zeichnen mit Canvas</a></h1>
     <nav id="navx"><h4>|</h4><h4><a href="interactive.html">Basics</a></h4><h4>|</h4><h4>
         <a href="interactive_2.html">Advanced</a></h4><h4>|</h4><h4><a href="interactive_3.html">Animation</a></h4><h4>
         |</h4></nav>
@@ -17,9 +18,123 @@
 <div id="fixedbox">
     <div id="centerContainer">
         <section id="contentSection">
-            <article><a name=""><h2>Prinzip der Animation mit Canvas</h2></a>
-                <p>Die Möglichkeiten mit Canvas-Elementen zu zeichnen beinhalten auch </p>
+            <article><a name=""><h2>Sichern und wiederherstellen von Canvas-Zuständen</h2></a>
+                <p>Die Möglichkeiten mit Canvas-Elementen zu zeichnen beinhalten auch die Grafik zu animieren. Jedoch
+                    ist die Animation zugleich auch nur über ein paar Umwege korrekt zu erreichen.
+                    <br>Die wohl größte Limitation bei der Animation ist es, dass sobald die "Shapes" gezeichnet sind,
+                    bleiben sie so. Auch für die nächste Veränderung. Wenn wir also eine Shape bewegen wollen, müssen
+                    wir sie
+                    entfernen und erneut zeichnen und alles andere auch! Das kostet bei komplexen Bildern einiges an
+                    Rechenzeit.
+                    <br>Das erneute Zeichnen können erleichtern, indem wir den Zustand des Canvas zwischenspeichern und
+                    später erneut laden. Dazu nutzen wir folgenden Methoden:</p>
+                <div class="htmlCode">ctx.save()
+                    <br>ctx.restore()
+                </div>
+                <p><i>save()</i> speichert, wie man vermuten kann, den aktuellen Zustand der Zeichnung. Zu einem Zustand
+                    gehören sämtliche Einstellungen, wie z.B. <i>fillStyle, globalAlpha</i> usw.. <i>restore()</i>
+                    hingegen stellt den gespeicherten Zustand wieder her. Save und Restore arbeiten wie auf einem Stack.
+                    Das bedeutet, dass <i>save()</i> mehrmals ausgeführt werden kann und restore dann den auf dem Stack
+                    obersten gespeicherten Zustand läd.</p>
             </article>
+            <article><h2>Prinzipien der Animation</h2>
+                <p>Wollen wir nun unser Canvas mit Animationen belegen, gilt es folgende Schritte in der vorgebenen
+                    Reihenfolge auszuführen.
+                <ol>
+                    <li><b>Clear the canvas</b>
+                        <br>Wir müssen alle Elemente, die wir vorher gezeichnet haben, entfernen. Dazu eignet sich die
+                        Methode <i>clearRect()</i>.
+                    </li>
+                    <li><b>Save the canvas state</b>
+                        <br>Sobald wir irgendwelche Einstellungen ändern, die den Zustand verändern, sollten wir den
+                        Ausgangszustand gespeichert haben. Denn wir wollen bei jeder Animation den Ursprungszustand als
+                        Ausgangsgrafik haben und jede Veränderung von da aus animieren.
+                    </li>
+                    <li><b>Draw animated shapes</b>
+                        <br>Hier führen wir die eigentliche Animation bzw. das Rendering aus.
+                    </li>
+                    <li><b>Restore the canvas state</b>
+                        <br>Wir stellen den gespeicherten Zustand wieder her, bevor wir ein neues Frame redern.
+                    </li>
+                </ol>
+                </p>
+            </article>
+            <article><h2>Kontrolle über die Animation</h2>
+                <p>Das Timing, wann welches Frame gezeichnet wird, spielt bei Animationen eine besonders wichtige Rolle.
+                    In der Regel sehen wir die Zeichnung eines Canvas dann, wenn das Skript, welches sie zeichnet,
+                    zuende gelaufen ist. Das zum Beispiel macht es unmöglich eine Animation mit einer for-Schleife zu
+                    animieren. Doch es gibt andere Wege den Zeitpunkt des Renderings zu kontrollieren.</p>
+                <div class="htmlCode">setInterval(function, delay)
+                    <br>setTimeout(function, delay)
+                    <br>requestAnimationFrame(callback)
+                </div>
+                <p>Die genannten drei Funktionen, die vom <i>window</i>-Objekt angeboten werden, erledigen diesen Job
+                    ausreichend gut. <i>setInterval()</i> führt die übergebene Callback-Funktion im Abstand des
+                    übergebenen Delays (in Millisekunden) aus. <i>setTimeout()</i> führt den übergebenen Callback nach
+                    dem spezifizierten Delay aus. Und <i>requestAnimationFrame()</i> fordert den Browser auf für den
+                    übergebenen Callback vor dem nächsten Repaint eine Animation auszuführen.</p>
+                <p>Nun folgt eine Beispielanimation, welche aus dem <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations#An_animated_solar_system">Mozilla
+                    Developer Network</a> entnommen ist. Sie demonstriert, wie sich mit verhältnismäßig wenig Code (<40
+                    Zeilen) eine doch sehr ansehnliche Animation erstellen lässt.</p>
+                <p>Die resultierende Grafik ist ein kleines animiertes Sonnenystem</p>
+                <canvas id="drawCanvasFive" width="300px" height="300px"></canvas>
+                <p>Der nachfolgende Code beschreibt die Animation des Sonnensystems:</p>
+                <div class="htmlCode">
+                    var sun = new Image();
+                    <br>var moon = new Image();
+                    <br> var earth = new Image();
+                    <br> function init(){
+                    <br>sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+                    <br>moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+                    <br> earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+                    <br> window.requestAnimationFrame(draw);
+                    <br> }
+                    <br>
+                    <br>function draw() {
+                    <br>var ctx = document.getElementById('canvas').getContext('2d');
+                    <br>
+                    <br> ctx.globalCompositeOperation = 'destination-over';
+                    <br>ctx.clearRect(0,0,300,300); // clear canvas
+                    <br>
+                    <br>ctx.fillStyle = 'rgba(0,0,0,0.4)';
+                    <br>ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+                    <br> ctx.save();
+                    <br>ctx.translate(150,150);
+                    <br>
+                    <br>// Earth
+                    <br> var time = new Date();
+                    <br>ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+                    <br>ctx.translate(105,0);
+                    <br>ctx.fillRect(0,-12,50,24); // Shadow
+                    <br>ctx.drawImage(earth,-12,-12);
+                    <br>
+                    <br> // Moon
+                    <br> ctx.save();
+                    <br> ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
+                    <br>ctx.translate(0,28.5);
+                    <br> ctx.drawImage(moon,-3.5,-3.5);
+                    <br>ctx.restore();
+                    <br>
+                    <br>ctx.restore();
+                    <br>
+                    <br>ctx.beginPath();
+                    <br> ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit
+                    <br>ctx.stroke();
+                    <br>
+                    <br>ctx.drawImage(sun,0,0,300,300);
+                    <br>
+                    <br> window.requestAnimationFrame(draw);
+                    <br>}
+                    <br>
+                    <br>init();
+                </div>
+
+            </article>
+            <p>Bei weiterem Intresse an Canvas-Elementen kann ich die ausführlichen Ressourcen des <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage">Mozilla
+                Developer Network</a> empfehlen. Diese dienten mir aus als Quelle für den Großteil den Inhalts dieser Seite.</p>
+            <p><a href="interactive_2.html">Zurück zu <i>Advanced</i></a></p>
         </section>
     </div>
 </div>
