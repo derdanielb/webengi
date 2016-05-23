@@ -1,0 +1,21 @@
+{
+  "Folder": {
+    "name": "Folder1",
+    "content": {
+      "Folder": {
+        "name": "Subfolder 1.1",
+        "content": ""
+      },
+      "File": [
+        {
+          "name": "File1",
+          "ref": "http://i.imgur.com/72w2Zl6.jpg"
+        },
+        {
+          "name": "File2",
+          "ref": "placeholderurl"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "main": {
+    "tag": "div",
+    "class": "messages",
+    "inner": [
+      "Root"
+    ]
+  },
+  "folder": {
+    "tag" : "div",
+    "class" : "folder",
+    "inner": "a folder"
+  },
+  "file": {
+    "tag": "div",
+    "class": "file",
+    "inner":["a file"]
+  }
+}
