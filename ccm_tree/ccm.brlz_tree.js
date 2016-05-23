@@ -34,13 +34,14 @@ ccm.component({
             $.getJSON('struct.json', function (data) {
                 structure = data;
                 //console.log(structure);
-                displayFolder("node", data.Folder);
+                decideContent("node", data.Root);
             });
             function initTree() {
 
             }
 
             function decideContent(parent, content) {
+                console.log(content);
                 Object.getOwnPropertyNames(content).forEach(function (item) {
                     if (item === "Folder") {
                         console.log("folder");
@@ -61,32 +62,30 @@ ccm.component({
                 //    displayFile(parent, content.File);
                 //}
             }
-
             function displayFolder(parent, currentFolder) {
-                var newFolder = JSON.parse(JSON.stringify(folder));
-                //console.log(currentFolder);
-                Object.getOwnPropertyNames(currentFolder).forEach(function (node, ind, root) {
-                    if (node === "name") {
-                        newFolder.inner = currentFolder[node];
-                        newFolder.id = parent + "0";
-                        //console.log("name is " + currentFolder[node]);
-                        //console.log(newFolder);
-                        ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFolder));
-                    }
-
-                    if (node === "content") {
-                        console.log("sub-node detected");
-                        if (currentFolder[node] !== "") {
-                            //console.log("sub node not empty");
-                            //console.log(currentFolder[node]);
-                            decideContent(parent + "0", currentFolder[node]);
+                currentFolder.forEach(function (fldr) {
+                    console.log(fldr);
+                    var newFolder = JSON.parse(JSON.stringify(folder));
+                    //console.log(currentFolder);
+                    Object.getOwnPropertyNames(fldr).forEach(function (node, ind, root) {
+                        if (node === "name") {
+                            newFolder.inner = fldr[node];
+                            newFolder.id = parent + "0";
+                            //console.log("name is " + currentFolder[node]);
+                            //console.log(newFolder);
+                            ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFolder));
                         }
-                    }
-
+                        if (node === "content") {
+                            console.log("sub-node detected");
+                            if (currentFolder[node] !== "") {
+                                //console.log("sub node not empty");
+                                //console.log(currentFolder[node]);
+                                decideContent(parent + "0", fldr[node]);
+                            }
+                        }
+                    })
                 })
-
             }
-
             function displayFile(parent, filesArray) {
                 var filecount = 0;
 
@@ -109,3 +108,14 @@ ccm.component({
         }
     }
 });
+//Data structure
+//  Root{}:
+//      -Folder[]
+//      -File[]
+//  Folder{}:
+//      -name:string
+//      -content:[ Folder || File]
+//  File{}:
+//      -name:string
+//      -ref:url
+//
