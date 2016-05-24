@@ -44,7 +44,7 @@ ccm.component({
                 console.log(content);
                 Object.getOwnPropertyNames(content).forEach(function (item) {
                     if (item === "Folder") {
-                        console.log("folder");
+                        console.log("folders");
                         displayFolder(parent, content.Folder);
                     }
                     if (item === "File") {
@@ -63,6 +63,7 @@ ccm.component({
                 //}
             }
             function displayFolder(parent, currentFolder) {
+                var foldercount = 0;
                 currentFolder.forEach(function (fldr) {
                     console.log(fldr);
                     var newFolder = JSON.parse(JSON.stringify(folder));
@@ -70,7 +71,8 @@ ccm.component({
                     Object.getOwnPropertyNames(fldr).forEach(function (node, ind, root) {
                         if (node === "name") {
                             newFolder.inner = fldr[node];
-                            newFolder.id = parent + "0";
+                            newFolder.id = parent + foldercount;
+                            foldercount++;
                             //console.log("name is " + currentFolder[node]);
                             //console.log(newFolder);
                             ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFolder));
@@ -108,6 +110,7 @@ ccm.component({
         }
     }
 });
+
 //Data structure
 //  Root{}:
 //      -Folder[]
