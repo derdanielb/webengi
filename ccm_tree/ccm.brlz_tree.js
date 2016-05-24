@@ -26,6 +26,18 @@ ccm.component({
             var style = {
                 "paddingLeft" : "0"
             };
+            var imageFolder = {
+              "tag":"img",
+                "src":"folder_blank_file16.png",
+                "align":"left",
+                "style": "margin-right: 4px;"
+            };
+            var imageFile = {
+                "tag":"img",
+                "src":"new_document16.png",
+                "align":"left",
+                "style": "margin-right: 4px;"
+            };
             //file.inner = JSON.parse(JSON.stringify(fileref));
             var element = ccm.helper.element(this);
             element.html('Hello, World!');
@@ -71,6 +83,7 @@ ccm.component({
                     console.log(fldr);
                     var newFolder = JSON.parse(JSON.stringify(folder));
                     var newStyle = JSON.parse(JSON.stringify(style));
+                    var newImage = JSON.parse(JSON.stringify(imageFolder));
                     //console.log(currentFolder);
                     Object.getOwnPropertyNames(fldr).forEach(function (node, ind, root) {
                         if (node === "name") {
@@ -85,7 +98,9 @@ ccm.component({
                             console.log(((newFolder.id).split("_").length - 1));
                             //console.log("name is " + currentFolder[node]);
                             //console.log(newFolder);
+
                             ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFolder));
+                            ccm.helper.find(that, '#' + newFolder.id).append(ccm.helper.html(newImage));
                         }
                         if (node === "content") {
                             console.log("sub-node detected");
@@ -104,7 +119,7 @@ ccm.component({
                 filesArray.forEach(function (file) {
                     var newFile = JSON.parse(JSON.stringify(file));
                     var newRef = JSON.parse(JSON.stringify(fileref));
-
+                    var newImage = JSON.parse(JSON.stringify(imageFile));
                     newFile.id = parent + "-" + filecount;
                     newRef.href = file.ref;
                     newRef.inner = file.name;
@@ -118,7 +133,9 @@ ccm.component({
                     filecount++;
                     //console.log(file.name);
                     //console.log(file.ref);
+
                     ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFile));
+                    ccm.helper.find(that, '#' + newFile.id).append(ccm.helper.html(newImage));
                     ccm.helper.find(that, '#' + newFile.id).append(ccm.helper.html(newRef));
                 })
             }
