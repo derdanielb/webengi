@@ -23,6 +23,9 @@ ccm.component({
                 "class": "file",
                 "id": "%placeholder%"
             };
+            var style = {
+                "paddingLeft" : "0"
+            };
             //file.inner = JSON.parse(JSON.stringify(fileref));
             var element = ccm.helper.element(this);
             element.html('Hello, World!');
@@ -67,12 +70,19 @@ ccm.component({
                 currentFolder.forEach(function (fldr) {
                     console.log(fldr);
                     var newFolder = JSON.parse(JSON.stringify(folder));
+                    var newStyle = JSON.parse(JSON.stringify(style));
                     //console.log(currentFolder);
                     Object.getOwnPropertyNames(fldr).forEach(function (node, ind, root) {
                         if (node === "name") {
                             newFolder.inner = fldr[node];
-                            newFolder.id = parent + foldercount;
+                            newFolder.id = parent + "_"+foldercount;
                             foldercount++;
+                            //newStyle.paddingLeft =
+                            // var lvl = 10*((newFolder.id).split("_").length - 1)+"px";
+                            var lvl = "20px";
+                            newFolder.style = "padding-left : "+ lvl;
+                            console.log(((newFolder.id).match(/./g) || []).length);
+                            console.log(((newFolder.id).split("_").length - 1));
                             //console.log("name is " + currentFolder[node]);
                             //console.log(newFolder);
                             ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFolder));
@@ -82,7 +92,7 @@ ccm.component({
                             if (currentFolder[node] !== "") {
                                 //console.log("sub node not empty");
                                 //console.log(currentFolder[node]);
-                                decideContent(parent + "0", fldr[node]);
+                                decideContent(newFolder.id, fldr[node]);
                             }
                         }
                     })
@@ -94,9 +104,14 @@ ccm.component({
                 filesArray.forEach(function (file) {
                     var newFile = JSON.parse(JSON.stringify(file));
                     var newRef = JSON.parse(JSON.stringify(fileref));
-                    newFile.id = parent + "_" + filecount;
+
+                    newFile.id = parent + "-" + filecount;
                     newRef.href = file.ref;
                     newRef.inner = file.name;
+                    //var lvl = 10*(((newFile.id).split("_").length - 1)+1)+"px";
+                    var lvl = "20px";
+                    newFile.style = "padding-left : "+ lvl;
+
                     //newFile.inner.href = file.ref;
                     //console.log(newFile);
                     //console.log(newRef);
