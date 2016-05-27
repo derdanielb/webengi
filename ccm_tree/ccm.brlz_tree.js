@@ -4,27 +4,28 @@ ccm.component({
         html: [ccm.store, {local: 'template.json'}]
     },
     Instance: function () {
+
         this.render = function () {
             var that = this;
             var folder = {
                 "tag": "div",
                 "class": "folder",
                 "id": "%placeholder%",
+                "droppable" : "true",
+                "ondrop":"drop(event)",
+                "ondragover":"allowDrop(event)",
                 "inner": "a folder"
             };
             var fileref = {
                 "tag": "a",
                 "href": "",
-                "target": "_blank",
+                "target": "brlz_iframe",
                 "inner": ""
             };
             var file = {
                 "tag": "div",
                 "class": "file",
                 "id": "%placeholder%"
-            };
-            var style = {
-                "paddingLeft" : "0"
             };
             var imageFolder = {
               "tag":"img",
@@ -36,77 +37,47 @@ ccm.component({
                 "tag":"img",
                 "src":"new_document16.png",
                 "align":"left",
+                "draggable":"true",
+                "ondragstart":"drag(event)",
                 "style": "margin-right: 4px;"
             };
-            //file.inner = JSON.parse(JSON.stringify(fileref));
             var element = ccm.helper.element(this);
-            element.html('Hello, World!');
             element.html(ccm.helper.html(that.html.get('root')));
-            //console.log(element.html);
             var structure;
-            //var messages_div = ccm.helper.find( that, '#fasdasdas' );
-            //messages_div.append(ccm.helper.html(ob));
             $.getJSON('struct.json', function (data) {
                 structure = data;
-                //console.log(structure);
                 decideContent("node", data.Root);
             });
             function initTree() {
 
             }
-
             function decideContent(parent, content) {
-                console.log(content);
                 Object.getOwnPropertyNames(content).forEach(function (item) {
                     if (item === "Folder") {
-                        console.log("folders");
                         displayFolder(parent, content.Folder);
                     }
                     if (item === "File") {
-                        console.log("files");
                         displayFile(parent, content.File);
                     }
                 });
-                //console.log(content);
-                //if (content.Folder !== "") {
-                //    console.log("folder");
-                //    displayFolder(parent, content.Folder);
-                //}
-                //if (content.File !== "") {
-                //    console.log("file");
-                //    displayFile(parent, content.File);
-                //}
             }
             function displayFolder(parent, currentFolder) {
                 var foldercount = 0;
                 currentFolder.forEach(function (fldr) {
-                    console.log(fldr);
                     var newFolder = JSON.parse(JSON.stringify(folder));
-                    var newStyle = JSON.parse(JSON.stringify(style));
                     var newImage = JSON.parse(JSON.stringify(imageFolder));
-                    //console.log(currentFolder);
                     Object.getOwnPropertyNames(fldr).forEach(function (node, ind, root) {
                         if (node === "name") {
                             newFolder.inner = fldr[node];
                             newFolder.id = parent + "_"+foldercount;
                             foldercount++;
-                            //newStyle.paddingLeft =
-                            // var lvl = 10*((newFolder.id).split("_").length - 1)+"px";
                             var lvl = "20px";
                             newFolder.style = "padding-left : "+ lvl;
-                            console.log(((newFolder.id).match(/./g) || []).length);
-                            console.log(((newFolder.id).split("_").length - 1));
-                            //console.log("name is " + currentFolder[node]);
-                            //console.log(newFolder);
-
                             ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFolder));
                             ccm.helper.find(that, '#' + newFolder.id).append(ccm.helper.html(newImage));
                         }
                         if (node === "content") {
-                            console.log("sub-node detected");
                             if (currentFolder[node] !== "") {
-                                //console.log("sub node not empty");
-                                //console.log(currentFolder[node]);
                                 decideContent(newFolder.id, fldr[node]);
                             }
                         }
@@ -123,20 +94,16 @@ ccm.component({
                     newFile.id = parent + "-" + filecount;
                     newRef.href = file.ref;
                     newRef.inner = file.name;
-                    //var lvl = 10*(((newFile.id).split("_").length - 1)+1)+"px";
+                    filecount++;
+
                     var lvl = "20px";
                     newFile.style = "padding-left : "+ lvl;
 
-                    //newFile.inner.href = file.ref;
-                    //console.log(newFile);
-                    //console.log(newRef);
-                    filecount++;
-                    //console.log(file.name);
-                    //console.log(file.ref);
 
                     ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFile));
-                    ccm.helper.find(that, '#' + newFile.id).append(ccm.helper.html(newImage));
-                    ccm.helper.find(that, '#' + newFile.id).append(ccm.helper.html(newRef));
+                    var FolderElement = ccm.helper.find(that, '#' + newFile.id);
+                    FolderElement.append(ccm.helper.html(newImage));
+                    FolderElement.append(ccm.helper.html(newRef));
                 })
             }
         }
