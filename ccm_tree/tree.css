@@ -4,17 +4,17 @@ body{
 }
 
 .root > .folder {
-    color: red;
+    color: black;
     cursor: pointer;
     /*display: inline-block;*/
     /*float: left;*/
 }
 
 .root > a:link{
-    color: white;
+    color: black;
     text-decoration: none;
 }
 .root > a:visited{
-    /*color: white;*/
+    color: black;
     text-decoration: none;
 }

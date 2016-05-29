@@ -11,10 +11,10 @@ var dragoptions = {
 };
 $( document ).ready(function() {
 
-    $('#2,#3,#4,#5,#6').sortable({
+    $('#1,#2,#3,#4,#5,#6').sortable({
         connectWith: "sort0, .sort1, .sort2, .sort3",
         revert: "invalid",
-        containment : '#1',
+        containment : '#border',
 
         over: function( event, ui){
             //event.preventDefault();
