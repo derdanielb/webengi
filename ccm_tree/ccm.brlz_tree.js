@@ -44,7 +44,6 @@ ccm.component({
             };
             var veryLastFolder = false;
             var element = ccm.helper.element(this);
-            console.log(this);
             element.html(ccm.helper.html(that.html.get('root')));
             var structure;
             $.getJSON(this.dir, function (data) {
