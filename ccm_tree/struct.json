@@ -2,14 +2,14 @@
   "Root": {
     "Folder": [
       {
-        "name": "Folder1",
+        "name": "Science Folder",
         "content": {
           "Folder": [{
-            "name": "Subfolder 1.1",
+            "name": "Computer Science",
             "content": {
               "File": [
                 {
-                  "name": "File1.1",
+                  "name": "any_cat.jpg",
                   "ref": "http://i.imgur.com/72w2Zl6.jpg"
                 }
               ]
@@ -17,18 +17,18 @@
           }],
           "File": [
             {
-              "name": "File1",
+              "name": "Thumbnail.jpg",
               "ref": "http://i.imgur.com/72w2Zl6.jpg"
             },
             {
-              "name": "File2",
+              "name": "Manual.pdf",
               "ref": "CCM%20TREE%20COMPONENT.pdf"
             }
           ]
         }
       },
       {
-        "name": "Folder2",
+        "name": "Maths",
         "content": ""
       }
     ]

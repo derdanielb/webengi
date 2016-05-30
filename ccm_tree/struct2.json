@@ -2,14 +2,14 @@
   "Root": {
     "Folder": [
       {
-        "name": "Folder1",
+        "name": "Folder_1",
         "content": {
           "Folder": [{
-            "name": "Subfolder 1.1",
+            "name": "Subfolder_1.1",
             "content": {
               "File": [
                 {
-                  "name": "File1.1",
+                  "name": "File_1",
                   "ref": "http://i.imgur.com/72w2Zl6.jpg"
                 }
               ]
@@ -21,32 +21,32 @@
         }
       },
       {
-        "name": "Folder2",
+        "name": "Folder_2",
         "content": {
           "Folder": [
             {
-              "name": "Subfolder 2.1",
+              "name": "Subfolder_2.1",
               "content": {
                 "Folder": [
                   {
-                    "name": "Subfolder 2.1.1",
+                    "name": "Subfolder_2.1.1",
                     "content": {
                       "Folder": [
 
                         {
-                          "name": "Subfolder 2.1.1.1",
+                          "name": "Subfolder_2.1.1.1",
                           "content": {
                             "File": [
                               {
-                                "name": "File1.1",
+                                "name": "File_1",
                                 "ref": "http://i.imgur.com/72w2Zl6.jpg"
                               },
                               {
-                                "name": "File1.1",
+                                "name": "File_2",
                                 "ref": "http://i.imgur.com/72w2Zl6.jpg"
                               },
                               {
-                                "name": "File1.1",
+                                "name": "File_3",
                                 "ref": "http://i.imgur.com/72w2Zl6.jpg"
                               }
 
@@ -54,32 +54,32 @@
                           }
                         },
                         {
-                          "name": "Subfolder 2.1.1.2",
+                          "name": "Subfolder_2.1.1.2",
                           "content": {
                             "Folder": [
 
                               {
-                                "name": "Subfolder 2.1.1.2.1",
+                                "name": "Subfolder_2.1.1.2.1",
                                 "content": {
                                   "File": [
                                     {
-                                      "name": "File1.1",
+                                      "name": "File_1",
                                       "ref": "http://i.imgur.com/72w2Zl6.jpg"
                                     },
                                     {
-                                      "name": "File1.1",
+                                      "name": "File_2",
                                       "ref": "http://i.imgur.com/72w2Zl6.jpg"
                                     },
                                     {
-                                      "name": "File1.1",
+                                      "name": "File_3",
                                       "ref": "http://i.imgur.com/72w2Zl6.jpg"
                                     },
                                     {
-                                      "name": "File1.1",
+                                      "name": "File_4",
                                       "ref": "http://i.imgur.com/72w2Zl6.jpg"
                                     },
                                     {
-                                      "name": "File1.1",
+                                      "name": "File_5",
                                       "ref": "http://i.imgur.com/72w2Zl6.jpg"
                                     }
 
@@ -87,7 +87,7 @@
                                 }
                               },
                               {
-                                "name": "Subfolder 2.1.1.2.2",
+                                "name": "Subfolder_2.1.1.2.2",
                                 "content": {
                                 }
                               }
@@ -100,7 +100,7 @@
                 ],
                 "File": [
                   {
-                    "name": "File1.1",
+                    "name": "File_1",
                     "ref": "http://i.imgur.com/72w2Zl6.jpg"
                   }
 
@@ -109,20 +109,20 @@
             },
 
             {
-            "name": "Subfolder 2.2",
+            "name": "Subfolder_2.2",
             "content": {
             }
             },
             {
-              "name": "Subfolder 2.3",
+              "name": "Subfolder_2.3",
               "content": {
                 "File": [
                   {
-                    "name": "File1.1",
+                    "name": "File_1",
                     "ref": "http://i.imgur.com/72w2Zl6.jpg"
                   },
                   {
-                    "name": "File1.1",
+                    "name": "File_2",
                     "ref": "http://i.imgur.com/72w2Zl6.jpg"
                   }
 
@@ -133,18 +133,18 @@
           ],
           "File": [
             {
-              "name": "File1.1",
+              "name": "File_1",
               "ref": "http://i.imgur.com/72w2Zl6.jpg"
             },
             {
-              "name": "File1.1",
+              "name": "File_2",
               "ref": "http://i.imgur.com/72w2Zl6.jpg"
             },
             {
-              "name": "File1.1",
+              "name": "File_3",
               "ref": "http://i.imgur.com/72w2Zl6.jpg"
             },{
-              "name": "File1.1",
+              "name": "File_4",
               "ref": "http://i.imgur.com/72w2Zl6.jpg"
             }
 
