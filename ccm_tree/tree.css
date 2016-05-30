@@ -21,3 +21,8 @@ body{
 .root > .connector{
     margin-right: 0;
 }
+.component{
+    border: solid 1px #2b5797;
+    margin: 10px;
+    padding: 5px;
+}
