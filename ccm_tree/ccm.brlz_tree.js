@@ -5,8 +5,6 @@ ccm.component({
         jquery_ui: [ccm.load, 'https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js']
     },
     Instance: function () {
-
-        //https://code.jquery.com/ui/1.11.4/jquery-ui.min.js
         this.render = function () {
             var that = this;
             var folder = {
@@ -72,36 +70,8 @@ ccm.component({
             function hideChildren(e) {
                 e.preventDefault();
                 e.stopPropagation();
-
                 var children = element.find(this).children();
                 toogleHide(children);
-                //console.log(children);
-                //console.log(element.find(this).data("childrenhidden"));
-
-                //if(element.find(this).attr("data-chidden") == true)
-                //{
-                //    element.find(this).removeAttr("data-chidden");
-                //    element.find(this).attr("data-chidden", false);
-                //    //element.find(this).data("childrenhidden", "false");
-                //    children.each(function (index, child) {
-                //        //child.removeAttribute('hidden');
-                //        element.find(child).toggle show();
-                //    })
-                //}else
-                //{
-                //    element.find(this).removeAttr("data-chidden");
-                //    element.find(this).attr("data-chidden", true);
-                //    //element.find(this).data("childrenhidden", "true");
-                //    children.each(function (index, child) {
-                //        //console.log(child);
-                //        //child.setAttribute('hidden',"true");
-                //        element.find(child).hide();
-                //
-                //    })
-                //}
-                //element.find(this).unbind('click', hideChildren);
-                //element.find(this).on('click', hideChildren);
-
             };
 
             function decideContent(parent, content, flag) {
@@ -167,31 +137,6 @@ ccm.component({
                             element.find('div#' + newFolder.id).droppable({
                                 drop: handleDropEvent
                             });
-                            //.sortable({
-                            //connectWith: ".folder",
-                            //revert: "invalid",
-                            //containment : '#node'}).disableSelection();
-                            //element.find('div#' + newFolder.id).on('click', function (e) {
-                            //    console.log(e);
-                            //    e.stopPropagation();
-                            //
-                            //    var children = element.find(this).children();
-                            //    if(element.find(this).data("childrenhidden"))
-                            //    {
-                            //        element.find(this).data("childrenhidden", "false");
-                            //        children.each(function (index, child) {
-                            //            child.hidden = false;
-                            //        })
-                            //    }else
-                            //    {
-                            //        element.find(this).data("childrenhidden", "true");
-                            //        children.each(function (index, child) {
-                            //            child.hidden = true;
-                            //        })
-                            //    }
-                            //
-                            //
-                            //})
                         }
                         if (node === "content") {
                             if (currentFolder[node] !== "") {
@@ -234,16 +179,7 @@ ccm.component({
                     newFile.style = "padding-left : " + lvl +"px";
                     ccm.helper.find(that, '#' + parent).append(ccm.helper.html(newFile));
                     var FolderElement = ccm.helper.find(that, '#' + newFile.id);
-                    //element.find('div#' + newFile.id).draggable( {
-                    //        containment: '#' + newFile.id,
-                    //        cursor: 'move'
-                    //}
-                    //);
-                    //for (var i = 0; i < level; i++) {
-                    //    var newImage3 = JSON.parse(JSON.stringify(imageFolder));
-                    //    newImage3.src = "c_bridge.png";
-                    //    ccm.helper.find(that, '#' + newFile.id).append(ccm.helper.html(newImage3));
-                    //}
+
                     element.find('div#' + newFile.id).click(function (e) {
                         e.stopPropagation();
                     });
@@ -254,21 +190,9 @@ ccm.component({
                         revert: 'invalid',
                         snap: ".folder"
                     });
-                    //.sortable({
-                    //connectWith: ".folder",
-                    //
-                    //containment : '#node'}).disableSelection();
                     ccm.helper.find(that, '#' + newFile.id).append(ccm.helper.html(newConnectorImage));
                     FolderElement.append(ccm.helper.html(newImage));
                     FolderElement.append(ccm.helper.html(newRef));
-                    //element.find('.FileImg').draggable({
-                    //
-                    //    cursor: 'move'
-                    //});
-                    //element.find('div#' + newFile.id+"ref").draggable( {
-                    //
-                    //    cursor: 'move'
-                    //});
                 })
             }
         }
