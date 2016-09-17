@@ -1,8 +1,9 @@
 ccm.component({
     name: 'brlz_tree',
     config: {
-        html: [ccm.store, {local: 'template.json'}],
-        jquery_ui: [ccm.load, 'https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js']
+        html: [ccm.store, {local: 'http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/template.json'}],
+        jquery_ui: [ccm.load, 'https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js'],
+        style: [ccm.load, 'http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/tree.css']
     },
     Instance: function () {
         this.render = function () {
@@ -28,13 +29,13 @@ ccm.component({
             };
             var imageFolder = {
                 "tag": "img",
-                "src": "folder_blank_file16.png",
+                "src": "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/folder_blank_file16.png",
                 "align": "left",
                 "style": "margin-right: 4px;"
             };
             var imageFile = {
                 "tag": "img",
-                "src": "new_document16resized.png",
+                "src": "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/new_document16resized.png",
                 "align": "left",
                 "class": "FileImg",
                 "style": "margin-right: 4px;"
@@ -53,15 +54,15 @@ ccm.component({
 
             function toogleHide(children) {
                 children.each(function (index, child) {
-                    if (element.find(child).attr('src') === "folder_blank_file16.png") {
-                        element.find(child).attr('src', "folder_blank_file16_folded.png");
+                    if (element.find(child).attr('src') === "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/folder_blank_file16.png") {
+                        element.find(child).attr('src', "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/folder_blank_file16_folded.png");
                     } else {
 
-                        if (element.find(child).attr('src') === "folder_blank_file16_folded.png") {
-                            element.find(child).attr('src', "folder_blank_file16.png");
+                        if (element.find(child).attr('src') === "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/folder_blank_file16_folded.png") {
+                            element.find(child).attr('src', "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/folder_blank_file16.png");
                         }
                         else {
-                            if (!(element.find(child).attr('src') === "c_middle.png" || element.find(child).attr('src') === "c_last.png" || element.find(child).attr('src') === "c_bridge.png")) {
+                            if (!(element.find(child).attr('src') === "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/c_middle.png" || element.find(child).attr('src') === "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/c_last.png" || element.find(child).attr('src') === "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/c_bridge.png")) {
                                 element.find(child).toggle('fast');
                             }
                         }
@@ -112,10 +113,10 @@ ccm.component({
                             newFolder.id = parent + "_" + foldercount;
                             foldercount++;
                             if (foldercount < currentFolder.length) {
-                                newConnectorImage.src = "c_middle.png";
+                                newConnectorImage.src = "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/c_middle.png";
                             }
                             else {
-                                newConnectorImage.src = "c_last.png";
+                                newConnectorImage.src = "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/c_last.png";
                                 lastFolderFlag = true;
                             }
                             if (lastFolderFlag) {
@@ -171,10 +172,10 @@ ccm.component({
                     }
 
                     if (filecount < filesArray.length) {
-                        newConnectorImage.src = "c_middle.png";
+                        newConnectorImage.src = "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/c_middle.png";
                     }
                     else {
-                        newConnectorImage.src = "c_last.png";
+                        newConnectorImage.src = "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/c_last.png";
                     }
 
                     lvl =  20;
