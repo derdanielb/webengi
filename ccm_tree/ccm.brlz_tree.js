@@ -11,9 +11,7 @@ ccm.component({
                 "tag": "div",
                 "class": "folder",
                 "id": "%placeholder%",
-
                 "inner": "a folder"
-
             };
             var fileref = {
                 "tag": "a",
