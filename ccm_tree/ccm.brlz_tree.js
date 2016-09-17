@@ -13,6 +13,7 @@ ccm.component({
                 "id": "%placeholder%",
                 "inner": "a folder"
             };
+
             var fileref = {
                 "tag": "a",
                 "href": "",
