@@ -40,11 +40,14 @@ ccm.component({
                 "class": "FileImg",
                 "style": "margin-right: 4px;"
             };
+
+
+
             var veryLastFolder = false;
             var element = ccm.helper.element(this);
             element.html(ccm.helper.html(that.html.get('root')));
             var structure;
-            $.getJSON(this.dir, function (data) {
+            ccm.load(this.dir, function(data){
                 structure = data;
                 decideContent("node", data.Root, false);
             });
@@ -208,7 +211,7 @@ ccm.component({
 //      -File[]
 //  Folder{}:
 //      -name:string
-//      -content:[ Folder || File]
+//      -content:{ Folder || File}
 //  File{}:
 //      -name:string
 //      -ref:url
