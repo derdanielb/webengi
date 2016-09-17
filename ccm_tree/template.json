@@ -1,4 +1,4 @@
-{
+ccm.callback['template.json']({
   "root": {
     "tag": "div",
     "class": "root",
@@ -18,4 +18,4 @@
     "class": "file",
     "inner":["a file"]
   }
-}
+});
