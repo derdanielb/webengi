@@ -47,11 +47,18 @@ ccm.component({
             var element = ccm.helper.element(this);
             element.html(ccm.helper.html(that.html.get('root')));
             var structure;
-            ccm.load(this.dir, function(data){
-                structure = data;
-                decideContent("node", data.Root, false);
-            });
-
+            if(this.dir) {
+                ccm.load(this.dir, function (data) {
+                    structure = data;
+                    decideContent("node", data.Root, false);
+                });
+            }
+            else{
+                ccm.load("http://derdanielb.github.io/webengi/ccm_tree/struct1.json", function (data) {
+                    structure = data;
+                    decideContent("node", data.Root, false);
+                });
+            }
             function toogleHide(children) {
                 children.each(function (index, child) {
                     if (element.find(child).attr('src') === "http://www2.inf.h-brs.de./~dbrilz2s/ccm_tree/folder_blank_file16.png") {
